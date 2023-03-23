@@ -36,4 +36,4 @@ const InquirySchama = new Schema(
   { timestamps: true, versionKey: false },
 );
 
-export const Bill = mongoose.model("Inquiry", InquirySchama);
+export const Inquiry = mongoose.model("Inquiry", InquirySchama);
