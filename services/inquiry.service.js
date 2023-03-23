@@ -5,6 +5,7 @@ import {
   getInquiryByCustomerId,
   updateInquiry,
   deleteInquiry,
+  saveInquiryAnon,
 } from "../repository/index.js";
 import AppError from "../utils/appError.js";
 
@@ -20,6 +21,30 @@ export const saveInquiryService = async (data, customerId) => {
   try {
     const inquiry = await saveInquiry({
       customerId,
+      customerName,
+      customerEmailAddress,
+      customerMobileNumber,
+      type,
+      customerMessage,
+      status,
+    });
+    return Promise.resolve(inquiry);
+  } catch (err) {
+    throw new AppError(err.message, err.status);
+  }
+};
+
+export const saveInquiryAnonService = async (data) => {
+  const {
+    customerName,
+    customerEmailAddress,
+    customerMobileNumber,
+    type,
+    customerMessage,
+    status,
+  } = data;
+  try {
+    const inquiry = await saveInquiryAnon({
       customerName,
       customerEmailAddress,
       customerMobileNumber,

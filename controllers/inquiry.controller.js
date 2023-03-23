@@ -5,14 +5,20 @@ import {
   getInquiryByIdService,
   updateInquiryService,
   deleteInquiryService,
+  saveInquiryAnonService,
 } from "../services/index.js";
 import Success from "../utils/success.js";
 
 export const saveInquiryController = async (req, res) => {
   try {
-    const customerId = req.user._id;
-    const inquiry = await saveInquiryService(req.body, customerId);
-    res.json(Success(inquiry, " Successfully Inquiry Added."));
+    if (req.user) {
+      const customerId = req.user._id;
+      const inquiry = await saveInquiryService(req.body, customerId);
+      res.json(Success(inquiry, " Successfully Inquiry Added."));
+    } else {
+      const inquiry = await saveInquiryAnonService(req.body);
+      res.json(Success(inquiry, " Successfully Inquiry Added."));
+    }
   } catch (err) {
     res.status(err.status).json(err.message);
   }
