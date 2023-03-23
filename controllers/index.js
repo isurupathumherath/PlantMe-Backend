@@ -18,4 +18,3 @@ export {
   loginUser,
   viewProfile,
 };
-//export * from "./user.controller.js";
