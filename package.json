@@ -1,7 +1,7 @@
 {
-  "name": "children-cloud-backend",
+  "name": "plantme-backend",
   "version": "1.0.0",
-  "description": "This project is to create a web application backend for daycare centers to facilitate and manage their daily work.",
+  "description": "This project is related to the platme application backend.",
   "main": "app.js",
   "type": "module",
   "scripts": {

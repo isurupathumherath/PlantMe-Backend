@@ -7,7 +7,16 @@ export const saveInquiry = (data) =>
       return Promise.resolve(inquiry);
     })
     .catch((err) => {
-      throw new AppError(`Internal Server Error: ${err}`, 500);
+      throw new AppError(`Internal Server Error: ${err}`, err.code);
+    });
+
+export const saveInquiryAnon = (data) =>
+  Inquiry.create(data)
+    .then((inquiry) => {
+      return Promise.resolve(inquiry);
+    })
+    .catch((err) => {
+      throw new AppError(`Internal Server Error: ${err}`, err.code);
     });
 
 export const getInquiry = () =>
