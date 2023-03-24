@@ -9,6 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// mongodb connection
 connect();
 
 app.set("views", "views");
