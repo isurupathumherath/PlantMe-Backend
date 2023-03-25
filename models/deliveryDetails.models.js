@@ -29,7 +29,8 @@ const DeliverySchema = new Schema(
       required: false,
     },
     status: {
-      type: Boolean,
+      type: String,
+      default: "pending",
       required: true,
     },
   },
